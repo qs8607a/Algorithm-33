@@ -21,9 +21,10 @@
 
 递归定义式为：
 
-m[i,j] = 0, 如果i = j;
+m[i,j] 
+            = 0, 如果i = j;
 
-            min{m[i,k],m[k+1,j]+p-i1pkpj},如果i<j，且i<=k<j。
+            = min{m[i,k],m[k+1,j]+p-i1pkpj},如果i<j，且i<=k<j。
 
 s[i,j]=k--跟踪最优解的代价。k表示在该处分裂
 
