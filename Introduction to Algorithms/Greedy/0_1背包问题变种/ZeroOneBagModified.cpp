@@ -4,12 +4,25 @@
 //Email：xiajunhust@gmail.com
 
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
 //采用贪心算法解决此问题
 
-int ZeroOneBagModified(const int n,const int maxW,int *w,int *v)
+//物品的重量和价值
+typedef struct ThingStruct{
+	int w;
+	int v;
+}Thing;
+
+//排序比较准则
+bool comp(Thing thing1,Thing thing2)
+{
+	return thing1.w < thing2.w;
+}
+
+int ZeroOneBagModified(const int n,const int maxW,Thing *things)
 {
 	int maxV = 0;//所能容纳的物品的最大价值
 	int wCurrent = 0;//当前已装入背包的物品的总重量
@@ -19,13 +32,13 @@ int ZeroOneBagModified(const int n,const int maxW,int *w,int *v)
 	{
 		if(wCurrent < maxW)
 		{
-			maxV += v[i];
-			wCurrent += w[i];
+			maxV += things[i].v;
+			wCurrent += things[i].w;
 		}
 		else break;
 	}
 	if(wCurrent > maxW)
-		maxV -= v[i - 1];
+		maxV -= things[i - 1].v;
 
 	return maxV;
 }
@@ -35,10 +48,11 @@ int main()
 	const int n = 6;//物品件数
 	const int maxW = 40;//背包所能容纳的最大重量
 	//各物品重量和价值列表
-	int w[n] = {3,5,8,11,14,19};
-	int v[n] = {30,28,24,17,14,6};
+	Thing things[n] = {{3,30},{5,28},{8,24},{11,17},{14,14},{19,6}}; 
 
-	int maxV = ZeroOneBagModified(n,maxW,w,v);
+	sort(things,things + n,comp);
+
+	int maxV = ZeroOneBagModified(n,maxW,things);
 
 	cout << "The max value of the things that the bag can contain : " << maxV << endl;
 
