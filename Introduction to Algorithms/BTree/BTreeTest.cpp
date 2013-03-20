@@ -71,6 +71,113 @@ int main()
 	cout << "Current B-Tree------------------------------------ : " << endl;
 	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
 
+	int searchedIndex;
+	struct BTreeNode<KeyType> *searchedNode = BTreeObj->searchBTree(BTreeObj->getRoot(),'j',searchedIndex);
+
+	KeyType deletedKey = 'm';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'j';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'g';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'i';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'k';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'l';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'r';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'h';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'n';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'e';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'f';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 's';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'u';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'a';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'b';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'p';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'd';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'c';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 't';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'x';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
+
+	deletedKey = 'x';
+	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
+	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
+	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
 
 	return 0;
 }
