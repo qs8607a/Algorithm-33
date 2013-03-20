@@ -31,6 +31,7 @@ private:
 
 public:
 	BTree(int tVal = 2);
+	~BTree();
 	BTreeNodeLink searchBTree(BTreeNodeLink T,KeyT k,int &index);//在B树中搜索某关键字
 	BTreeNodeLink getRoot();//返回当前B树的根节点
 	void insertBTreeNode(KeyT k);//向B树中插入关键字
@@ -42,6 +43,7 @@ public:
 	void insertBTreeNonFull(BTreeNodeLink x,KeyT k);//将关键字插入到以该非满节点为根的树中
 	BTreeNodeLink __allocateNode();//产生一个新的节点
 	void deleteNode(BTreeNodeLink node);//释放一个节点所占的空间（不包括其子女节点所占空间）
+	void deleteTree(BTreeNodeLink t);//删除一棵B树所占空间
 };
 
 //构造函数
@@ -54,6 +56,15 @@ BTree<KeyT>::BTree(int tVal = 2)
 	x->isLeaf = true;
 	x->n = 0;
 	T = x;
+}
+
+//析构函数
+template <class KeyT>
+BTree<KeyT>::~BTree()
+{
+	deleteTree(T);
+
+	T = NULL;
 }
 
 //函数：依据一组关键字值，创建一棵B树
@@ -72,6 +83,12 @@ void BTree<KeyT>::createBTree(KeyT *keyValues)
 template <class KeyT>
 typename BTree<KeyT>::BTreeNodeLink BTree<KeyT>::searchBTree(BTreeNodeLink T,KeyT k,int &index)
 {
+	if(NULL == T)
+	{
+		index = -1;
+		return NULL;
+	}
+
 	int i = 0;
 	//搜索根节点
 	while(i < T->n && k > T->keys[i])
@@ -449,4 +466,24 @@ template <class KeyT>
 void BTree<KeyT>::deleteNode(typename BTree<KeyT>::BTreeNodeLink node)
 {
 	delete[] node->keys;
+}
+
+//函数：释放一棵B树所占空间
+template <class KeyT>
+void BTree<KeyT>::deleteTree(typename BTree<KeyT>::BTreeNodeLink t)
+{
+	if(NULL == t)
+		return;
+
+	//是叶节点，直接删除空间
+	if(t->isLeaf)
+		delete[] t->keys;
+	else
+	{
+		//递归删除子树
+		for(int i = 0;i < t->n;++i)
+			deleteTree(t->childs[i]);
+
+		delete[] t->childs;
+	}
 }

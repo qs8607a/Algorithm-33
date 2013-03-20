@@ -169,6 +169,8 @@ int main()
 	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
 	BTreeObj->printBTreeBFS(BTreeObj->getRoot());
 
+	//delete BTreeObj;
+
 	deletedKey = 'x';
 	BTreeObj->deleteBTreeKey(BTreeObj->getRoot(),deletedKey);
 	cout << "Current B-Tree after delete " << deletedKey << "------------------------------------ : " << endl;
