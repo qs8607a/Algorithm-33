@@ -1,3 +1,8 @@
+//快速排序的普通版本编程实现
+//参考《算法导论（第二版）》第七章 快速排序
+//Author：江南烟雨
+//E-Mail：xiajunhust@gmail.com
+
 //Quick Sort
 
 #include <iostream>
