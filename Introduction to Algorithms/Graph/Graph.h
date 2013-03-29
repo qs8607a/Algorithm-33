@@ -39,12 +39,22 @@ private:
 
 	int __getNodeIndex(GraphNodeLink node);//得到某个顶点在颜色等数组中的索引
 	void __DFSSubGraph(GraphNodeLink u,int &time,int *d,int *f,enum NodeColor *color,GraphNodeLink *parent);//从某个子节点开始深度优先遍历
+	//删除邻接表所占空间
+	void __deleteAdjacencyList();
+	void __deleteSingleLinkList(GraphNodeLink head);//删除一个单链表
 };
 
 template <class ElemType>
 GraphClass<ElemType>::GraphClass()
 {
 	root = NULL;
+}
+
+//析构函数
+template <class ElemType>
+GraphClass<ElemType>::~GraphClass()
+{
+	__deleteAdjacencyList();
 }
 
 //函数：依据图的邻接矩阵表示创建图的临界表表示
@@ -247,4 +257,29 @@ void GraphClass<ElemType>::__printAdjacencyList()
 		}
 		cout << endl;
 	}
+}
+
+//空间释放：删除邻接表所占空间
+template <class ElemType>
+void GraphClass<ElemType>::__deleteAdjacencyList()
+{
+	if(NULL == root)
+		return;
+	for(int i = 0;i < num_nodes;++i)
+	{
+		GraphNodeLink head= *(root + i);
+		if(head)
+			__deleteSingleLinkList(head);
+	}
+}
+
+//删除一个单链表所占空间
+template <class ElemType>
+void GraphClass<ElemType>::__deleteSingleLinkList(typename GraphClass<ElemType>::GraphNodeLink head)
+{
+	if(NULL == head)
+		return;
+
+	__deleteSingleLinkList(head->next);
+	delete head;
 }
